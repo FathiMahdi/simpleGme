@@ -1,12 +1,17 @@
 #include "Game.hpp"
+#include "GameObject.hpp"
 #include <iostream>
+
+GameObject *playerMain;
 
 Game::Game()
 {
+
 }
 
 Game::~Game()
 {
+
 }
 
 void Game::init(const char *title, int xpos, int ypos, int w, int h, bool fullscreen)
@@ -34,9 +39,8 @@ void Game::init(const char *title, int xpos, int ypos, int w, int h, bool fullsc
         {
             std::cout << "renderer initilized!!\n";
             Game::isRunning = true;
-            SDL_Surface *tempSurface = IMG_Load("mario_stand.png");
-            Game::playerTexture = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
-            SDL_FreeSurface(tempSurface);
+
+            playerMain = new GameObject("mario_ump.png", Game::renderer, 0, 0);
         }
     }
     else
@@ -45,18 +49,30 @@ void Game::init(const char *title, int xpos, int ypos, int w, int h, bool fullsc
 
 void Game::render()
 {
-
     SDL_RenderClear(Game::renderer);
-    SDL_RenderCopy(Game::renderer, Game::playerTexture, NULL, NULL);
+    playerMain->Render();
     SDL_RenderPresent(Game::renderer);
 }
 
 void Game::update()
 {
+    playerMain->Update();
 }
 
 void Game::eventHandler()
 {
+    SDL_Event event;
+
+    SDL_PollEvent(&event);
+
+    switch (event.type)
+    {
+    case SDL_QUIT:
+        Game::isRunning = false;
+        break;
+    default:
+        break;
+    }
 }
 
 void Game::clean()

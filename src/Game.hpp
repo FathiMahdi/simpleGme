@@ -3,13 +3,15 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+
 class Game
 {
 private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Texture *playerTexture;
-  
+    SDL_Rect src_rect, dist_rect;
+    
 
 public:
     bool isRunning;

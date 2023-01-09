@@ -2,6 +2,7 @@ COMPILER = g++
 SRC = main.cpp
 SRC += Game.cpp
 SRC += textureManager.cpp
+SRC += GameObject.cpp
 TARGET = Game
 LIBS = -lSDL2
 LIBS += -lSDL2_image
