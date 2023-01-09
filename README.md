@@ -1,4 +1,4 @@
-#A simple c++ game
+# A simple c++ game
 
 This game should simulate a guided missile behaviour.
 The purpose of creating this game is to learn how physics and computer graphics works.
