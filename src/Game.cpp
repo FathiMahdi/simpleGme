@@ -40,7 +40,7 @@ void Game::init(const char *title, int xpos, int ypos, int w, int h, bool fullsc
             std::cout << "renderer initilized!!\n";
             Game::isRunning = true;
 
-            playerMain = new GameObject("mario_ump.png", Game::renderer, 0, 0);
+            playerMain = new GameObject("assets/mario_ump.png", Game::renderer, 0, 0);
         }
     }
     else
